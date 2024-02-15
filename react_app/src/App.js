@@ -1,7 +1,9 @@
+const { default: Main } = require("components/Main/Main");
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Main>
+    </Main>
   );
 }
 
