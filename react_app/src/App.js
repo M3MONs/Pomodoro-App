@@ -1,7 +1,12 @@
+import Footer from "components/Footer/Footer";
+
+const { default: Main } = require("components/Main/Main");
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Main>
+      <Footer />
+    </Main>
   );
 }
 
