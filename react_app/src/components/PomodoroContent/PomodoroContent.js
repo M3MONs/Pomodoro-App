@@ -1,9 +1,13 @@
 import React from 'react'
-import PomodoroContentWrapper from './PomodoroContent.style'
+import PomodoroContentWrapper, { GridWrapper } from './PomodoroContent.style'
 
 const PomodoroContent = ({ children }) => {
     return (
-        <PomodoroContentWrapper>{children}</PomodoroContentWrapper>
+        <PomodoroContentWrapper>
+            <GridWrapper>
+                {children}
+            </GridWrapper>
+        </PomodoroContentWrapper>
     )
 }
 

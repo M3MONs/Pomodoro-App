@@ -11,6 +11,7 @@ const PomodoroClockWrapper = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    align-self: end;
 `
 
 const ClockWrapper = styled.div`

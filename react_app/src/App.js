@@ -1,6 +1,7 @@
 import Footer from "components/Footer/Footer";
 import PomodoroClock from "components/PomodoroClock/PomodoroClock";
 import PomodoroContent from "components/PomodoroContent/PomodoroContent";
+import TodoBoard from "components/TodoBoard/TodoBoard";
 import YoutubeEmbed from "components/YoutubeEmbed/YoutubeEmbed";
 
 const { default: Main } = require("components/Main/Main");
@@ -11,6 +12,7 @@ function App() {
       <PomodoroContent>
         <PomodoroClock />
         <YoutubeEmbed />
+        <TodoBoard />
       </PomodoroContent>
       <Footer />
     </Main>
