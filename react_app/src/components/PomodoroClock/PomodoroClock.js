@@ -1,25 +1,35 @@
 import React, { useEffect, useState } from 'react'
 import PomodoroClockWrapper, { ClockWrapper } from './PomodoroClock.style'
 import PomodoroClockBtns from './PomodoroClockBtns'
+import { formatTime } from './PomodoroClock.utils'
 
 const PomodoroClock = () => {
-    const [initTime, setInitTime] = useState(30 * 60 * 1000)
+    const [remainingTime, setRemainingTime] = useState(30 * 60 * 1000)
     const [isStarted, setIsStarted] = useState(false)
 
     useEffect(() => {
-        if (isStarted) { }
-    }, 1000)
+        if (isStarted) {
+            const intervalTimer = setInterval(() => {
+                setRemainingTime((prevTime) => prevTime - 1000)
+            }, 1000)
 
-    const formatTime = (time) => {
-        const min = Math.floor(time / (1000 * 60))
-        const sec = Math.floor((time % (1000 * 60)) / 1000)
-        return `${min.toString().padStart(2, "0")}:${sec.toString().padStart(2, "0")}`
+            return () => clearInterval(intervalTimer)
+        }
+    }, [isStarted, remainingTime])
+
+    const handleTimerState = () => {
+        setIsStarted(!isStarted)
+    }
+
+    const handleResetTimer = () => {
+        setRemainingTime(30 * 60 * 1000)
+        setIsStarted(false)
     }
 
     return (
         <PomodoroClockWrapper>
-            <ClockWrapper>{formatTime(initTime)}</ClockWrapper>
-            <PomodoroClockBtns isStarted={isStarted} />
+            <ClockWrapper>{formatTime(remainingTime)}</ClockWrapper>
+            <PomodoroClockBtns isStarted={isStarted} handleTimerState={handleTimerState} handleResetTimer={handleResetTimer} />
         </PomodoroClockWrapper>
     )
 }
