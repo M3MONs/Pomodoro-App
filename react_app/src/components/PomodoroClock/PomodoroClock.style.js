@@ -25,6 +25,9 @@ const ButtonsWrapper = styled.div`
     display: flex;
     justify-content: center;
     gap: 15px;
+    span{
+        font-weight: 500;
+    }
 `
 
 export default PomodoroClockWrapper
