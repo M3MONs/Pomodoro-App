@@ -6,10 +6,10 @@ const PomodoroClockBtns = ({ isStarted, handleTimerState, handleResetTimer }) =>
     return (
         <ButtonsWrapper>
             {!isStarted ?
-                <Button onClick={handleTimerState}>Start</Button> :
-                <Button onClick={handleTimerState}>Stop</Button>
+                <Button size='large' shape='round' onClick={handleTimerState} type='primary' style={{ backgroundColor: 'green' }}>Start</Button> :
+                <Button size='large' shape='round' onClick={handleTimerState} type='primary'>Stop</Button>
             }
-            <Button onClick={handleResetTimer}>Reset</Button>
+            <Button size='large' shape='round' type='primary' danger onClick={handleResetTimer}>Reset</Button>
         </ButtonsWrapper>
     )
 }
