@@ -6,6 +6,7 @@ const YoutubeWrapper = styled.div`
     border-radius: 25px;
     padding: 1.5rem;
     background: rgba(0,0,0,0.4);
+    align-self: end;
 `
 
 export default YoutubeWrapper
