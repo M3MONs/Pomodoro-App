@@ -2,7 +2,7 @@ const { default: styled } = require("styled-components");
 
 const PomodoroClockWrapper = styled.div`
     width: 450px;
-    height: 200px;
+    height: 250px;
     border-radius: 25px;
     padding: 1.5rem;
     background: rgba(0,0,0,0.4);
