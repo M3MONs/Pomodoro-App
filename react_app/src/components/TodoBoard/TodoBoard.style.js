@@ -10,9 +10,9 @@ const BoardWrapper = styled.div`
 
 const ColumnsWrapper = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: stretch;
-    gap: 35px;
+    padding: 0 25px;
     height: 90%;
     margin-top: 2%;
     ul{
@@ -21,7 +21,7 @@ const ColumnsWrapper = styled.div`
 `
 
 const Column = styled.div`
-    width: 200px;
+    width: 250px;
     text-align: center;
     background: #d6d6de;
     border-radius: 15px;
