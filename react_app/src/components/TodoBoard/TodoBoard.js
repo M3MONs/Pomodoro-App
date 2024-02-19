@@ -1,11 +1,12 @@
 import React from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { BoardWrapper, Column, ColumnsWrapper } from './TodoBoard.style'
+import { BoardWrapper, ColumnsWrapper } from './TodoBoard.style'
+import Column from './atoms/Column/Column'
 
 const columns = [
-    { id: 1, title: 'To do' },
-    { id: 2, title: 'In progress' },
-    { id: 3, title: 'Done' },
+    { id: 1, title: 'To do', tasks: [] },
+    { id: 2, title: 'In progress', tasks: [] },
+    { id: 3, title: 'Done', tasks: [] },
 ]
 
 const TodoBoard = () => {
@@ -14,14 +15,7 @@ const TodoBoard = () => {
             <DragDropContext>
                 <ColumnsWrapper>
                     {columns.map((column) => (
-                        <Column key={column.id} className='column'>
-                            <h3>{column.title}</h3>
-                            <ul>
-                                <li key={column.id} draggable="true">
-                                    test
-                                </li>
-                            </ul>
-                        </Column>
+                        <Column key={column.id} title={column.title} />
                     ))}
                 </ColumnsWrapper>
             </DragDropContext>
