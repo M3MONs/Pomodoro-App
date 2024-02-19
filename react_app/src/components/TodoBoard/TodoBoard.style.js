@@ -20,11 +20,4 @@ const ColumnsWrapper = styled.div`
     }
 `
 
-const Column = styled.div`
-    width: 250px;
-    text-align: center;
-    background: #d6d6de;
-    border-radius: 15px;
-`
-
-export { BoardWrapper, ColumnsWrapper, Column }
+export { BoardWrapper, ColumnsWrapper }
