@@ -6,6 +6,7 @@ const TaskWrapper = styled.li`
     background: white;
     border-radius: 5px;
     font-weight: 500;
+    margin-bottom: 10px;
 `
 
 export { TaskWrapper }
