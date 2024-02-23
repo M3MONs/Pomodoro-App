@@ -2,11 +2,11 @@ import React from 'react'
 import ColumnWrapper, { ColumnTitle } from './Column.style'
 import ColumnTasks from '../ColumnTasks/ColumnTasks'
 
-const Column = ({ title = "", tasks = [] }) => {
+const Column = ({ title = "", tasks = [], index }) => {
     return (
-        <ColumnWrapper>
+        <ColumnWrapper key={index}>
             <ColumnTitle>{title}</ColumnTitle>
-            <ColumnTasks tasks={tasks} />
+            <ColumnTasks tasks={tasks} title={title} />
         </ColumnWrapper>
     )
 }
