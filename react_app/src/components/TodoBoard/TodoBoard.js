@@ -51,19 +51,14 @@ const TodoBoard = () => {
         if (!result.destination) return;
 
         const items = Array.from(columns[2].tasks);
-        const [reorderedItem] = items.splice(result.source.index, 1);
+        const [reorderedItem] = items.splice(result.source.index, 2);
         items.splice(result.destination.index, 0, reorderedItem);
 
-        const test = columns[2]
+        const test = columns
 
-        test.tasks = items
+        test[2].tasks = items
 
-        console.log(items)
-
-        setColumns((prevState) => ({
-            ...prevState,
-            [2]: test,
-        }));
+        setColumns(test);
     }
 
     return (
