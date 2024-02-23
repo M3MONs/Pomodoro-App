@@ -3,9 +3,9 @@ import { Droppable } from 'react-beautiful-dnd';
 import SingleTask from '../SingleTask/SingleTask';
 import Wrapper from './ColumnTasks.style';
 
-const ColumnTasks = ({ tasks = [] }) => {
+const ColumnTasks = ({ tasks = [], title = "" }) => {
     return (
-        <Droppable droppableId='tasks'>
+        <Droppable droppableId={title}>
             {(provided) => (
                 <Wrapper {...provided.droppableProps} ref={provided.innerRef}>
                     {tasks.map((task, index) => {
