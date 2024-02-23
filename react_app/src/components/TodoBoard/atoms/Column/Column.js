@@ -1,7 +1,7 @@
 import React from 'react'
 import ColumnWrapper, { ColumnTasks, ColumnTitle } from './Column.style'
 import Task from '../Task/Task'
-import { Draggable, Droppable } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd'
 
 const Column = ({ title = "", tasks = [] }) => {
     return (
@@ -12,13 +12,7 @@ const Column = ({ title = "", tasks = [] }) => {
                     <ColumnTasks {...provided.droppableProps} ref={provided.innerRef}>
                         {tasks.map((task, index) => {
                             return (
-                                <Draggable key={task.id} draggableId={task.id} index={index}>
-                                    {(provided) => (
-                                        <Task provided={provided}>
-                                            {task.content}
-                                        </Task>
-                                    )}
-                                </Draggable>
+                                <Task task={task} index={index} key={task.id} provided={provided} />
                             );
                         })}
                         {provided.placeholder}
