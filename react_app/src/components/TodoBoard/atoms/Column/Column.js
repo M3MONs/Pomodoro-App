@@ -1,30 +1,12 @@
 import React from 'react'
-import ColumnWrapper, { ColumnTasks, ColumnTitle } from './Column.style'
-import Task from '../Task/Task'
-import { Draggable, Droppable } from 'react-beautiful-dnd'
+import ColumnWrapper, { ColumnTitle } from './Column.style'
+import ColumnTasks from '../ColumnTasks/ColumnTasks'
 
-const Column = ({ title = "", tasks = [] }) => {
+const Column = ({ title = "", tasks = [], index }) => {
     return (
-        <ColumnWrapper>
+        <ColumnWrapper key={index}>
             <ColumnTitle>{title}</ColumnTitle>
-            <Droppable droppableId='tasks'>
-                {(provided) => (
-                    <ColumnTasks {...provided.droppableProps} ref={provided.innerRef}>
-                        {tasks.map((task, index) => {
-                            return (
-                                <Draggable key={task.id} draggableId={task.id} index={index}>
-                                    {(provided) => (
-                                        <Task provided={provided}>
-                                            {task.content}
-                                        </Task>
-                                    )}
-                                </Draggable>
-                            );
-                        })}
-                        {provided.placeholder}
-                    </ColumnTasks>
-                )}
-            </Droppable>
+            <ColumnTasks tasks={tasks} title={title} />
         </ColumnWrapper>
     )
 }
