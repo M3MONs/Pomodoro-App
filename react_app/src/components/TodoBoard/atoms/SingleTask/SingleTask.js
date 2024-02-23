@@ -1,8 +1,8 @@
 import React from 'react'
-import { TaskWrapper } from './Task.style'
+import { TaskWrapper } from './SingleTask.style'
 import { Draggable } from 'react-beautiful-dnd'
 
-const Task = ({ task = {}, index, provided }) => {
+const SingleTask = ({ task = {}, index }) => {
     return (
         <Draggable key={task.id} draggableId={task.id} index={index}>
             {(provided) => (
@@ -14,4 +14,4 @@ const Task = ({ task = {}, index, provided }) => {
     )
 }
 
-export default Task
+export default SingleTask
