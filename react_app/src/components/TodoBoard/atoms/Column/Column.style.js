@@ -17,12 +17,5 @@ text-align: center;
 font-weight: 600;
 `
 
-const ColumnTasks = styled.ul`
-display: flex;
-flex-direction: column;
-align-items: center;
-margin: 10px 0;
-`
-
 export default ColumnWrapper
-export { ColumnTitle, ColumnTasks }
+export { ColumnTitle }
