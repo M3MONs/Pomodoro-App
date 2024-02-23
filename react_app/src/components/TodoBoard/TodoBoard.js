@@ -50,20 +50,15 @@ const TodoBoard = () => {
     function handleOnDragEnd(result) {
         if (!result.destination) return;
 
-        const items = Array.from(columns[1].tasks);
-        const [reorderedItem] = items.splice(result.source.index, 1);
+        const items = Array.from(columns[2].tasks);
+        const [reorderedItem] = items.splice(result.source.index, 2);
         items.splice(result.destination.index, 0, reorderedItem);
 
-        const test = columns[1]
+        const test = columns
 
-        test.tasks = items
+        test[2].tasks = items
 
-        console.log(items)
-
-        setColumns((prevState) => ({
-            ...prevState,
-            [1]: test,
-        }));
+        setColumns(test);
     }
 
     return (
