@@ -2,70 +2,41 @@ import React, { useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { BoardWrapper, ColumnsWrapper } from './TodoBoard.style'
 import Column from './atoms/Column/Column'
+import { initBoard, isMoveToOtherColumn } from './TodoBoard.utils'
 
-const board =
-    [
-        {
-            id: 0, name: 'To Do', tasks: [
-                {
-                    id: 'task-1',
-                    content: 'Task 1',
-                },
-                {
-                    id: 'task-2',
-                    content: 'Task 2',
-                },
-            ]
-        },
-        {
-            id: 1, name: 'In Progress', tasks: [
-                {
-                    id: 'task-3',
-                    content: 'Task 3',
-                },
-                {
-                    id: 'task-4',
-                    content: 'Task 4',
-                },
-            ]
-        },
-        {
-            id: 2, name: 'Done', tasks: [
-                {
-                    id: 'task-5',
-                    content: 'Task 5',
-                },
-                {
-                    id: 'task-6',
-                    content: 'Task 6',
-                },
-            ]
-        },
-    ]
 
 const TodoBoard = () => {
     // eslint-disable-next-line
-    const [columns, setColumns] = useState(board);
+    const [columns, setColumns] = useState(initBoard);
 
     function handleOnDragEnd(result) {
         if (!result.destination) return;
 
-        const items = Array.from(columns[2].tasks);
-        const [reorderedItem] = items.splice(result.source.index, 2);
-        items.splice(result.destination.index, 0, reorderedItem);
+        let updatedColumns = { ...columns };
 
-        const test = columns
+        if (isMoveToOtherColumn(result)) {
+            const taskToMove = updatedColumns[result.source.droppableId][result.source.index];
 
-        test[2].tasks = items
+            // Remove from source column directly
+            updatedColumns[result.source.droppableId].splice(result.source.index, 1);
 
-        setColumns(test);
+            // Insert into destination column
+            const destinationTasks = updatedColumns[result.destination.droppableId];
+            destinationTasks.splice(result.destination.index, 0, taskToMove);
+        } else {
+            const items = updatedColumns[result.source.droppableId];
+            const [reorderedItem] = items.splice(result.source.index, 1);
+            items.splice(result.destination.index, 0, reorderedItem);
+        }
+
+        setColumns(updatedColumns);
     }
 
     return (
         <BoardWrapper>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <ColumnsWrapper>
-                    {board.map((x, index) => (<Column title={x.name} tasks={x.tasks} index={index} />))}
+                    {Object.keys(columns).map((key, index) => (<Column title={key} tasks={columns[key]} index={index} />))}
                 </ColumnsWrapper>
             </DragDropContext>
         </BoardWrapper>
