@@ -32,11 +32,20 @@ const TodoBoard = () => {
         setColumns(updatedColumns);
     }
 
+    const removeTask = (title, index) => {
+        const updatedColumns = { ...columns };
+        const updatedTasks = [...updatedColumns[title]];
+
+        updatedTasks.splice(index, 1);
+        updatedColumns[title] = updatedTasks;
+        setColumns(updatedColumns);
+    };
+
     return (
         <BoardWrapper>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <ColumnsWrapper>
-                    {Object.keys(columns).map((key, index) => (<Column title={key} tasks={columns[key]} index={index} />))}
+                    {Object.keys(columns).map((key, index) => (<Column title={key} tasks={columns[key]} index={index} rmTask={removeTask} />))}
                 </ColumnsWrapper>
             </DragDropContext>
         </BoardWrapper>
