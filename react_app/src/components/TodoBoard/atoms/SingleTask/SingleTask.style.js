@@ -7,6 +7,8 @@ const TaskWrapper = styled.li`
     border-radius: 5px;
     font-weight: 500;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 `
 
 const ContentWrapper = styled.div`
