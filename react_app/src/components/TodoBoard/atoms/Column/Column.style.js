@@ -15,6 +15,7 @@ background: rgba(250, 250, 250, 0.5);;
 border-radius: 15px 15px 0 0;
 text-align: center;
 font-family: "Pacifico";
+user-select: none;
 `
 
 export default ColumnWrapper
