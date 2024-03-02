@@ -7,6 +7,18 @@ const TaskWrapper = styled.li`
     border-radius: 5px;
     font-weight: 500;
     margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `
 
-export { TaskWrapper }
+const ContentWrapper = styled.div`
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    word-break: break-all;
+`
+
+export { TaskWrapper, ContentWrapper }
