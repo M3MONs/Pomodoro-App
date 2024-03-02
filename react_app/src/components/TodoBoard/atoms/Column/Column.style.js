@@ -14,7 +14,7 @@ height: 1.75rem;
 background: rgba(250, 250, 250, 0.5);;
 border-radius: 15px 15px 0 0;
 text-align: center;
-font-weight: 600;
+font-family: "Pacifico";
 `
 
 export default ColumnWrapper
