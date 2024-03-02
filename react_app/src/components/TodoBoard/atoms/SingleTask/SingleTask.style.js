@@ -9,4 +9,11 @@ const TaskWrapper = styled.li`
     margin-bottom: 10px;
 `
 
-export { TaskWrapper }
+const ContentWrapper = styled.div`
+    padding: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export { TaskWrapper, ContentWrapper }
