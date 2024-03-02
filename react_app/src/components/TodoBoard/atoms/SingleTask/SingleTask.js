@@ -3,7 +3,12 @@ import { ContentWrapper, TaskWrapper } from './SingleTask.style'
 import { Draggable } from 'react-beautiful-dnd'
 import { Button } from 'antd'
 
-const SingleTask = ({ task = {}, index }) => {
+const SingleTask = ({ task = {}, index, title, rmTask }) => {
+
+    const handleDeleteBtn = () => {
+        rmTask(title, index)
+    }
+
     return (
         <Draggable key={task.id} draggableId={task.id} index={index}>
             {(provided) => (
@@ -11,7 +16,7 @@ const SingleTask = ({ task = {}, index }) => {
                     <ContentWrapper>
                         {task.content}
                     </ContentWrapper>
-                    <Button size='small' shape='circle' style={{ fontWeight: 500 }}>X</Button>
+                    <Button size='small' shape='circle' style={{ fontWeight: 500 }} onClick={handleDeleteBtn}>X</Button>
                 </TaskWrapper>
             )}
         </Draggable>
