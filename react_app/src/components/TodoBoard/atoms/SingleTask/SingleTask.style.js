@@ -9,6 +9,7 @@ const TaskWrapper = styled.li`
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 `
 
 const ContentWrapper = styled.div`
@@ -16,6 +17,8 @@ const ContentWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    word-break: break-all;
 `
 
 export { TaskWrapper, ContentWrapper }
