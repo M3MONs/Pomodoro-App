@@ -1,13 +1,17 @@
 import React from 'react'
-import { TaskWrapper } from './SingleTask.style'
+import { ContentWrapper, TaskWrapper } from './SingleTask.style'
 import { Draggable } from 'react-beautiful-dnd'
+import { Button } from 'antd'
 
 const SingleTask = ({ task = {}, index }) => {
     return (
         <Draggable key={task.id} draggableId={task.id} index={index}>
             {(provided) => (
                 <TaskWrapper ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                    {task.content}
+                    <ContentWrapper>
+                        {task.content}
+                    </ContentWrapper>
+                    <Button size='small' shape='circle' style={{ fontWeight: 500 }}>X</Button>
                 </TaskWrapper>
             )}
         </Draggable>
