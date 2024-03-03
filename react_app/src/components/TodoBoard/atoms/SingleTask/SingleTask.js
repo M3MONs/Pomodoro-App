@@ -9,15 +9,19 @@ const SingleTask = ({ task = {}, index, title, rmTask }) => {
         rmTask(title, index)
     }
 
+    const renderTaskDetails = (provided) => (
+        <TaskWrapper ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+            <ContentWrapper>
+                {task.content}
+            </ContentWrapper>
+            <Button size='small' shape='circle' style={{ fontWeight: 500 }} onClick={handleDeleteBtn}>X</Button>
+        </TaskWrapper>
+    )
+
     return (
         <Draggable key={task.id} draggableId={task.id} index={index}>
             {(provided) => (
-                <TaskWrapper ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                    <ContentWrapper>
-                        {task.content}
-                    </ContentWrapper>
-                    <Button size='small' shape='circle' style={{ fontWeight: 500 }} onClick={handleDeleteBtn}>X</Button>
-                </TaskWrapper>
+                renderTaskDetails(provided)
             )}
         </Draggable>
     )
