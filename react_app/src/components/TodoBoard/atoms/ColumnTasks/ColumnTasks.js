@@ -4,11 +4,11 @@ import SingleTask from '../SingleTask/SingleTask';
 import Wrapper from './ColumnTasks.style';
 
 
-const ColumnTasks = ({ tasks = [], title = "", rmTask }) => {
+const ColumnTasks = ({ tasks = [], title = "" }) => {
 
     const renderTasks = (provided) => (tasks.map((task, index) => {
         return (
-            <SingleTask task={task} index={index} key={task.id} provided={provided} title={title} rmTask={rmTask} />
+            <SingleTask task={task} index={index} key={task.id} provided={provided} title={title} />
         );
     }))
 
