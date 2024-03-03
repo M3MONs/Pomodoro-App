@@ -6,7 +6,7 @@ import Wrapper from './ColumnTasks.style';
 
 const ColumnTasks = ({ tasks = [], title = "", rmTask }) => {
 
-    const DisplayTasks = (provided) => (tasks.map((task, index) => {
+    const renderTasks = (provided) => (tasks.map((task, index) => {
         return (
             <SingleTask task={task} index={index} key={task.id} provided={provided} title={title} rmTask={rmTask} />
         );
@@ -16,7 +16,7 @@ const ColumnTasks = ({ tasks = [], title = "", rmTask }) => {
         <Droppable droppableId={title}>
             {(provided) => (
                 <Wrapper {...provided.droppableProps} ref={provided.innerRef}>
-                    {DisplayTasks(provided)}
+                    {renderTasks(provided)}
                     {provided.placeholder}
                 </Wrapper>
             )}
