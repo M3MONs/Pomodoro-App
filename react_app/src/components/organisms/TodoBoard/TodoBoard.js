@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { BoardWrapper, ColumnsWrapper } from './TodoBoard.style'
-import Column from './atoms/Column/Column'
+import Column from '../../molecules/Column/Column'
 import { BoardContext } from 'context/TodoBoardContext'
 
 
