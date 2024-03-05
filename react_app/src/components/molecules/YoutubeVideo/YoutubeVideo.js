@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import YoutubeWrapper from './YoutubeEmbed.style'
+import YoutubeWrapper from './YoutubeVideo.style'
 import YouTube from 'react-youtube'
 import { Input } from 'antd'
-import { extractVideoId, opts } from './YoutubeEmbed.utils'
+import { extractVideoId, opts } from '../../utils/YoutubeEmbed.utils'
 
 const YoutubeEmbed = () => {
     const [videoLink, setVideoLink] = useState('mmKguZohAck')
