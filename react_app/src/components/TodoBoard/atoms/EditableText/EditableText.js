@@ -5,14 +5,10 @@ const EditableText = ({ text = "", editContent }) => {
     const [isEditing, setIsEditing] = useState(false);
     const textInputRef = useRef(null)
 
-    const handleRightClick = (e) => { e.preventDefault(); setIsEditing(true) }
-
-    const handleKeyDown = (e) => {
-        setContent(e.target.value)
-        if (e.key === "Enter") {
-            setIsEditing(false)
-            editContent(textInputRef.current.value)
-        }
+    const handleRightClick = async (e) => {
+        await setIsEditing(true);
+        const inputElement = textInputRef.current
+        inputElement.select()
     }
 
     const handleBlur = () => setIsEditing(false)
