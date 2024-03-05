@@ -41,7 +41,17 @@ export const BoardProvider = ({ children }) => {
         setBoardTasks(updatedColumns);
     };
 
-    const contextValue = { handleOnDragEnd, removeTask, boardTasks }
+    const editTaskContent = (table, index, content) => {
+        const updatedColumns = { ...boardTasks };
+        const updatedTasks = [...updatedColumns[table]];
+
+        updatedTasks[index].content = content
+        updatedColumns[table] = updatedTasks
+
+        setBoardTasks(updatedColumns)
+    }
+
+    const contextValue = { handleOnDragEnd, removeTask, editTaskContent, boardTasks }
     return (
         <BoardContext.Provider value={contextValue}>{children}</BoardContext.Provider>
     );
