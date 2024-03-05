@@ -1,11 +1,11 @@
-import Footer from "components/Footer/Footer";
-import PomodoroClock from "components/PomodoroClock/PomodoroClock";
-import PomodoroContent from "components/PomodoroContent/PomodoroContent";
-import TodoBoard from "components/TodoBoard/TodoBoard";
-import YoutubeVideo from "components/YoutubeVideo/YoutubeVideo";
+import Footer from "components/molecules/Footer/Footer";
+import PomodoroClock from "components/organisms/PomodoroClock/PomodoroClock";
+import PomodoroContent from "components/molecules/PomodoroContent/PomodoroContent";
+import TodoBoard from "components/organisms/TodoBoard/TodoBoard";
+import YoutubeVideo from "components/molecules/YoutubeVideo/YoutubeVideo";
 import { BoardProvider } from "context/TodoBoardContext";
 
-const { default: Main } = require("components/Main/Main");
+const { default: Main } = require("components/pages/Main/Main");
 
 function App() {
   return (
