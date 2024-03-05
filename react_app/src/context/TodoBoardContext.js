@@ -44,8 +44,10 @@ export const BoardProvider = ({ children }) => {
     const editTaskContent = (table, index, content) => {
         const updatedColumns = { ...boardTasks };
         const updatedTasks = [...updatedColumns[table]];
-        updatedTasks[index] = content
+
+        updatedTasks[index].content = content
         updatedColumns[table] = updatedTasks
+
         setBoardTasks(updatedColumns)
     }
 
