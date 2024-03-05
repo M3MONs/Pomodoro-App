@@ -3,7 +3,7 @@ import { ContentWrapper, TaskWrapper } from './SingleTask.style'
 import { Draggable } from 'react-beautiful-dnd'
 import { Button } from 'antd'
 import { BoardContext } from 'context/TodoBoardContext'
-import EditableText from '../EditableText/EditableText'
+import EditableText from '../../atoms/EditableText'
 
 const SingleTask = ({ task = {}, index, title }) => {
 

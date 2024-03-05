@@ -1,6 +1,6 @@
 import React from 'react'
 import FooterWrapper from './Footer.style'
-import GithubLink from './GithubLink'
+import GithubLink from '../../atoms/GithubLink'
 
 const Footer = () => {
     const currentYear = new Date().getFullYear()
