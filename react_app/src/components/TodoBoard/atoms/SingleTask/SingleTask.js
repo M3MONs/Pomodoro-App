@@ -14,7 +14,7 @@ const SingleTask = ({ task = {}, index, title }) => {
     }
 
     const handleEditTaskContent = (text) => {
-        editTaskContent(task.id, index, text)
+        editTaskContent(title, index, text)
     }
 
     const renderTaskDetails = (provided) => (
