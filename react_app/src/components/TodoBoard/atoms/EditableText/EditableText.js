@@ -5,18 +5,26 @@ const EditableText = ({ text = "", editContent }) => {
     const [isEditing, setIsEditing] = useState(false);
     const textInputRef = useRef(null)
 
-    const handleRightClick = async (e) => {
+    const handleDoubleClick = async (e) => {
         await setIsEditing(true);
         const inputElement = textInputRef.current
         inputElement.select()
     }
 
-    const handleBlur = () => setIsEditing(false)
+    const handleBlur = () => { setIsEditing(false); console.log(content) }
 
     return (
         <>{isEditing ?
-            (<input ref={textInputRef} defaultValue={content} onChange={(e) => setContent(e.target.value)} onBlur={handleBlur} />) :
-            (<span onDoubleClick={handleRightClick}>{content}</span>)}</>
+            (<input
+                ref={textInputRef}
+                defaultValue={content}
+                onChange={(e) => setContent(e.target.value)}
+                onBlur={handleBlur}
+            />) :
+            (<span
+                onDoubleClick={handleDoubleClick}>
+                {content}
+            </span>)}</>
     )
 }
 
