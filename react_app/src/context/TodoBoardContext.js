@@ -1,4 +1,4 @@
-import { initBoard } from "components/TodoBoard/TodoBoard.utils";
+import { initBoard } from "components/utils/TodoBoard.utils";
 
 const { createContext, useState } = require("react");
 
@@ -31,6 +31,7 @@ export const BoardProvider = ({ children }) => {
 
         setBoardTasks(updatedTasks);
     }
+
 
     const removeTask = (title, index) => {
         const updatedColumns = { ...boardTasks };

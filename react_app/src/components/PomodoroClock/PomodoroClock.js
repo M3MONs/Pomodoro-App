@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PomodoroClockWrapper, { ClockWrapper } from './PomodoroClock.style'
 import PomodoroClockBtns from './PomodoroClockBtns'
-import { formatTime } from './PomodoroClock.utils'
+import { formatTime } from '../utils/PomodoroClock.utils'
 
 const PomodoroClock = () => {
     const [remainingTime, setRemainingTime] = useState(30 * 60 * 1000)
