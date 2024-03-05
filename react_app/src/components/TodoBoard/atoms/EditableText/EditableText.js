@@ -5,13 +5,22 @@ const EditableText = ({ text = "", editContent }) => {
     const [isEditing, setIsEditing] = useState(false);
     const textInputRef = useRef(null)
 
-    const handleDoubleClick = async (e) => {
+    const handleDoubleClick = async () => {
         await setIsEditing(true);
         const inputElement = textInputRef.current
         inputElement.select()
     }
 
-    const handleBlur = () => { setIsEditing(false); console.log(content) }
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            editContentEnd()
+        }
+    }
+
+    const editContentEnd = () => {
+        setIsEditing(false)
+        editContent(content)
+    }
 
     return (
         <>{isEditing ?
@@ -19,7 +28,8 @@ const EditableText = ({ text = "", editContent }) => {
                 ref={textInputRef}
                 defaultValue={content}
                 onChange={(e) => setContent(e.target.value)}
-                onBlur={handleBlur}
+                onBlur={editContentEnd}
+                onKeyDown={handleKeyDown}
             />) :
             (<span
                 onDoubleClick={handleDoubleClick}>
