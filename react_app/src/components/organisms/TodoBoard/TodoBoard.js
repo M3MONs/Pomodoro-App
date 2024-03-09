@@ -9,7 +9,7 @@ const TodoBoard = () => {
     const { handleOnDragEnd, boardTasks } = useContext(BoardContext)
 
     return (
-        <BoardWrapper>
+        <BoardWrapper onContextMenu={(e) => { e.preventDefault() }}>
             <DragDropContext onDragEnd={handleOnDragEnd}>
                 <ColumnsWrapper>
                     {Object.keys(boardTasks).map((key, index) => (<Column title={key} tasks={boardTasks[key]} index={index} />))}
