@@ -1,3 +1,4 @@
+import { Input } from 'antd';
 import React, { useRef, useState } from 'react'
 
 const EditableText = ({ text = "", editContent }) => {
@@ -24,7 +25,7 @@ const EditableText = ({ text = "", editContent }) => {
 
     return (
         <>{isEditing ?
-            (<input
+            (<Input
                 ref={textInputRef}
                 defaultValue={content}
                 onChange={(e) => setContent(e.target.value)}
