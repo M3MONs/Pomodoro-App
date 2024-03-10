@@ -52,7 +52,26 @@ export const BoardProvider = ({ children }) => {
         setBoardTasks(updatedColumns)
     }
 
-    const contextValue = { handleOnDragEnd, removeTask, editTaskContent, boardTasks }
+    const addTask = (table) => {
+        const newTask = generateNewTask()
+
+        const updatedColumns = { ...boardTasks };
+        const updatedTasks = [...updatedColumns[table]];
+        const newUpdatedTasks = [...updatedTasks, newTask]
+
+        updatedColumns[table] = newUpdatedTasks
+
+        setBoardTasks(updatedColumns)
+    }
+
+    const generateNewTask = () => {
+        return {
+            id: crypto.randomUUID(),
+            content: "New Task",
+        }
+    }
+
+    const contextValue = { handleOnDragEnd, removeTask, editTaskContent, addTask, boardTasks }
     return (
         <BoardContext.Provider value={contextValue}>{children}</BoardContext.Provider>
     );
