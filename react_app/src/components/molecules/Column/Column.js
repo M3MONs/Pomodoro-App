@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ColumnWrapper, { ColumnTitle } from './Column.style'
 import ColumnTasks from '../ColumnTasks/ColumnTasks'
 import { Item, Menu, useContextMenu } from 'react-contexify'
 import 'react-contexify/ReactContexify.css';
 import styled from 'styled-components';
+import { BoardContext } from 'context/TodoBoardContext';
 
 const StyledItem = styled(Item)`
     font-weight: 700;
@@ -13,12 +14,13 @@ const StyledItem = styled(Item)`
 
 const Column = ({ title = "", tasks = [], index }) => {
     const { show } = useContextMenu({ id: title })
+    const { addTask } = useContext(BoardContext)
 
     const handleContextMenu = (e) => {
         show({ event: e })
     }
 
-    const handleAddTask = () => { }
+    const handleAddTask = (title) => { addTask(title) }
 
     return (
         <>
@@ -27,7 +29,7 @@ const Column = ({ title = "", tasks = [], index }) => {
                 <ColumnTasks tasks={tasks} title={title} />
             </ColumnWrapper>
             <Menu id={title} >
-                <StyledItem onClick={handleAddTask} >
+                <StyledItem onClick={(e) => { handleAddTask(title) }} >
                     + ADD
                 </StyledItem>
             </Menu>
