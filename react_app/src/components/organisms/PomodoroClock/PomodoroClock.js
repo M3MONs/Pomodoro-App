@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import PomodoroClockWrapper, { ClockTitle, ClockWrapper } from './PomodoroClock.style'
 import PomodoroClockBtns from '../../molecules/PomodoroClockBtns'
 import { formatTime } from '../../utils/PomodoroClock.utils'
+import alert from '../../../assets/alert.mp3'
 
 const FOCUS_TIME = 30 * 60 * 1000
 const BREAK_TIME = 5 * 60 * 1000
+const AUDIO = new Audio(alert)
 
 
 const PomodoroClock = () => {
@@ -42,10 +44,12 @@ const PomodoroClock = () => {
     }, [clockState])
 
     const handleTimerState = () => {
+        AUDIO.play();
         setIsStarted(!isStarted)
     }
 
     const changeClockState = () => {
+        AUDIO.play();
         setClockState((prev) => (prev === 'focus' ? 'break' : 'focus'))
     }
 
