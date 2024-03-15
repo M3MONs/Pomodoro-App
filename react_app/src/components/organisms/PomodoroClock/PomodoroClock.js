@@ -55,6 +55,7 @@ const PomodoroClock = () => {
 
     const handleResetTimer = () => {
         setRemainingTime(FOCUS_TIME)
+        setClockState('focus')
         setIsStarted(false)
     }
 
