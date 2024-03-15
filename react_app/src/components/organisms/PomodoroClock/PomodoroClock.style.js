@@ -31,5 +31,13 @@ const ButtonsWrapper = styled.div`
     }
 `
 
+const ClockTitle = styled.h2`
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    font-family: "Pacifico";
+`
+
 export default PomodoroClockWrapper
-export { ClockWrapper, ButtonsWrapper }
+export { ClockWrapper, ButtonsWrapper, ClockTitle }
