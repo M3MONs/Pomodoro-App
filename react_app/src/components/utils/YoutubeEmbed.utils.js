@@ -1,6 +1,6 @@
 export const opts = {
     height: '220',
-    width: '450',
+    width: 'auto',
     playerVars: {
         autoplay: 1,
     }

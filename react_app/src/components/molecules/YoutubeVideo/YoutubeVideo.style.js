@@ -7,6 +7,14 @@ const YoutubeWrapper = styled.div`
     padding: 1.5rem;
     background: rgba(0,0,0,0.4);
     align-self: end;
+    iframe{
+        width: 100%;
+    }
+    @media (max-width: 1049px){
+        max-width: 400px ;
+        width: 100%;
+        align-self: center;
+    }
 `
 
 export default YoutubeWrapper

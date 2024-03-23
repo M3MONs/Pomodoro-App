@@ -3,8 +3,7 @@ body {
         "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    width: 100vw !important;
-    height: 100vh !important;
+    max-width: 100vw;
 }
 
 * {
