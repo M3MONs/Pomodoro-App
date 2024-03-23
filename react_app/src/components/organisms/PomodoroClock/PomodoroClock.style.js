@@ -12,6 +12,12 @@ const PomodoroClockWrapper = styled.div`
     justify-content: center;
     align-items: center;
     align-self: end;
+    @media (max-width: 1049px){
+        max-width: 450px;
+        width: 100%;
+        padding: 1.5rem 0;
+        align-self: center;
+    }
 `
 
 const ClockWrapper = styled.div`
