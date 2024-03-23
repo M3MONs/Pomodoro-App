@@ -5,6 +5,9 @@ width: 250px;
 text-align: center;
 background: rgba(225, 225, 225, 0.75);
 border-radius: 15px;
+@media (max-width: 1049px){
+    min-height: 340px;
+}
 `
 
 const ColumnTitle = styled.h3`
