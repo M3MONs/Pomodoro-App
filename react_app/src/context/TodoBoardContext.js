@@ -6,7 +6,7 @@ const { createContext, useState } = require("react");
 export const BoardContext = createContext()
 
 export const BoardProvider = ({ children }) => {
-    const [boardTasks, setBoardTasks] = useState(JSON.parse(Cookies.get('board')) || initBoard)
+    const [boardTasks, setBoardTasks] = useState(Cookies.get('board') ? JSON.parse(Cookies.get('board')) : initBoard)
 
     const isMoveToOtherColumn = (result) => { return result.destination.droppableId !== result.source.droppableId }
 
