@@ -1,13 +1,19 @@
 import { initBoard } from "components/utils/TodoBoard.utils";
+import Cookies from "js-cookie";
 
 const { createContext, useState } = require("react");
 
 export const BoardContext = createContext()
 
 export const BoardProvider = ({ children }) => {
-    const [boardTasks, setBoardTasks] = useState(initBoard)
+    const [boardTasks, setBoardTasks] = useState(JSON.parse(Cookies.get('board')) || initBoard)
 
     const isMoveToOtherColumn = (result) => { return result.destination.droppableId !== result.source.droppableId }
+
+    const updateTasks = (updatedTasks) => {
+        setBoardTasks(updatedTasks)
+        Cookies.set('board', JSON.stringify(updatedTasks), { expires: 7 });
+    }
 
     const handleOnDragEnd = (result) => {
         if (!result.destination) return;
@@ -29,9 +35,8 @@ export const BoardProvider = ({ children }) => {
             items.splice(result.destination.index, 0, reorderedItem);
         }
 
-        setBoardTasks(updatedTasks);
+        updateTasks(updatedTasks)
     }
-
 
     const removeTask = (title, index) => {
         const updatedColumns = { ...boardTasks };
@@ -39,7 +44,7 @@ export const BoardProvider = ({ children }) => {
 
         updatedTasks.splice(index, 1);
         updatedColumns[title] = updatedTasks;
-        setBoardTasks(updatedColumns);
+        updateTasks(updatedColumns)
     };
 
     const editTaskContent = (table, index, content) => {
@@ -49,7 +54,7 @@ export const BoardProvider = ({ children }) => {
         updatedTasks[index].content = content
         updatedColumns[table] = updatedTasks
 
-        setBoardTasks(updatedColumns)
+        updateTasks(updatedColumns)
     }
 
     const addTask = (table) => {
@@ -61,7 +66,7 @@ export const BoardProvider = ({ children }) => {
 
         updatedColumns[table] = newUpdatedTasks
 
-        setBoardTasks(updatedColumns)
+        updateTasks(updatedColumns)
     }
 
     const generateNewTask = () => {
