@@ -1,7 +1,7 @@
 const { default: styled } = require("styled-components");
 
 const FooterWrapper = styled.footer`
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
     height: 2rem;
