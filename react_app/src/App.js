@@ -4,6 +4,7 @@ import PomodoroContent from "components/molecules/PomodoroContent/PomodoroConten
 import TodoBoard from "components/organisms/TodoBoard/TodoBoard";
 import YoutubeVideo from "components/molecules/YoutubeVideo/YoutubeVideo";
 import { BoardProvider } from "context/TodoBoardContext";
+import BoardNote from "components/molecules/BoardNote/BoardNote";
 
 const { default: Main } = require("components/pages/Main/Main");
 
@@ -16,6 +17,7 @@ function App() {
         <BoardProvider>
           <TodoBoard />
         </BoardProvider>
+        <BoardNote />
       </PomodoroContent>
       <Footer />
     </Main>
