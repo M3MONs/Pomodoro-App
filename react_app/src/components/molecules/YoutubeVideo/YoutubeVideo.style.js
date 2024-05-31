@@ -5,16 +5,33 @@ const YoutubeWrapper = styled.div`
     height: 250px;
     border-radius: 25px;
     padding: 1.5rem;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     align-self: end;
-    iframe{
+    iframe {
         width: 100%;
     }
-    @media (max-width: 1049px){
-        max-width: 400px ;
+    @media (max-width: 1049px) {
+        max-width: 400px;
         width: 100%;
         align-self: center;
     }
-`
+`;
 
-export default YoutubeWrapper
+export const YoutubeContentWrapper = styled.div`
+    width: 100%;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        flex-grow: 1;
+        animation: fadeIn 0.5s;
+    }
+
+    .hide {
+        display: none;
+    }
+`;
+
+export default YoutubeWrapper;

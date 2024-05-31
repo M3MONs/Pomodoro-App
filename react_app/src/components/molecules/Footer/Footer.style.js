@@ -8,17 +8,18 @@ const FooterWrapper = styled.footer`
     text-align: center;
     font-weight: 600;
     color: whitesmoke;
-    background-color: rgba(0,0,0,0.30);
+    background-color: rgba(0, 0, 0, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-    a{
+    a {
         text-decoration: none;
         color: wheat !important;
     }
-    @media (max-width: 1049px){
+    @media (max-width: 1049px) {
+        margin-top: 2rem;
         position: sticky;
     }
-`
+`;
 
-export default FooterWrapper
+export default FooterWrapper;
