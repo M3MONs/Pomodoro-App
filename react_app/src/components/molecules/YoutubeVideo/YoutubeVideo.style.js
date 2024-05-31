@@ -20,6 +20,18 @@ const YoutubeWrapper = styled.div`
 export const YoutubeContentWrapper = styled.div`
     width: 100%;
     height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        flex-grow: 1;
+        animation: fadeIn 0.5s;
+    }
+
+    .hide {
+        display: none;
+    }
 `;
 
 export default YoutubeWrapper;
