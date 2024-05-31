@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import Cookies from 'js-cookie';
 import YoutubeWrapper from './YoutubeVideo.style'
 import { Input, Skeleton } from 'antd'
@@ -9,11 +9,6 @@ const LazyYoutubeEmbed = React.lazy(() => import('react-youtube'))
 const YoutubeEmbed = () => {
     const [videoLink, setVideoLink] = useState(Cookies.get('videoLink') || 'mmKguZohAck');
     const [userInputLink, setUserInputLink] = useState('')
-    const [isLoaded, setIsLoaded] = useState(false)
-
-    useEffect(() => {
-        setIsLoaded(false)
-    }, [videoLink])
 
     const handleEnterLink = (e) => {
         if (e.key === 'Enter') {
@@ -27,9 +22,8 @@ const YoutubeEmbed = () => {
     return (
         <YoutubeWrapper>
             <Suspense fallback={<Skeleton.Image active={true} style={{ width: '450px', height: '220px' }} />}>
-                <LazyYoutubeEmbed opts={opts} videoId={videoLink} onReady={() => setIsLoaded(true)} />
+                <LazyYoutubeEmbed opts={opts} videoId={videoLink} />
             </Suspense>
-            {!isLoaded && <Skeleton.Image active={true} style={{ width: '450px', height: '220px' }} />}
             <Input placeholder='Enter YT video link' onChange={(e) => setUserInputLink(e.target.value)} onKeyDown={handleEnterLink} />
         </YoutubeWrapper>
     )
