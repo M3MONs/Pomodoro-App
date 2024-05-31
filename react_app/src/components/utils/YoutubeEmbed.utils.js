@@ -1,9 +1,6 @@
 export const opts = {
     height: '220',
     width: 'auto',
-    playerVars: {
-        autoplay: 1,
-    }
 }
 
 export const extractVideoId = (url) => {
