@@ -1,13 +1,17 @@
-import React from 'react'
-import MainWrapper, { Background } from './Main.style'
+import React, { Suspense } from "react";
+import MainWrapper from "./Main.style";
+
+const LazyBackground = React.lazy(() => import("./Background"));
 
 const Main = ({ children }) => {
     return (
         <MainWrapper>
-            <Background />
+            <Suspense>
+                <LazyBackground />
+            </Suspense>
             {children}
         </MainWrapper>
-    )
-}
+    );
+};
 
-export default Main
+export default Main;
