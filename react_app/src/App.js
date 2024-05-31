@@ -3,7 +3,6 @@ import BoardNote from "components/molecules/BoardNote/BoardNote";
 import Footer from "components/molecules/Footer/Footer";
 import { BoardProvider } from "context/TodoBoardContext";
 import LoadingSpin from "components/atoms/LoadingSpin";
-import Main from "components/pages/Main/Main";
 
 const LazyMain = lazy(() => import("components/pages/Main/Main"));
 
@@ -20,7 +19,7 @@ const LazyTodoBoard = lazy(() => import("components/organisms/TodoBoard/TodoBoar
 function App() {
     return (
         <Suspense fallback={<LoadingSpin />}>
-            <Main>
+            <LazyMain>
                 <LazyPomodoroContent>
                     <LazyPomodoroClock />
                     <LazyYoutubeEmbed />
@@ -30,7 +29,7 @@ function App() {
                     <BoardNote />
                 </LazyPomodoroContent>
                 <Footer />
-            </Main>
+            </LazyMain>
         </Suspense>
     );
 }
