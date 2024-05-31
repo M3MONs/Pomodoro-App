@@ -1,10 +1,15 @@
 import { lazy, Suspense } from "react";
-import { Spin } from "antd";
 import BoardNote from "components/molecules/BoardNote/BoardNote";
 import Footer from "components/molecules/Footer/Footer";
-import PomodoroContent from "components/molecules/PomodoroContent/PomodoroContent";
-import Main from "components/pages/Main/Main";
 import { BoardProvider } from "context/TodoBoardContext";
+import LoadingSpin from "components/atoms/LoadingSpin";
+import Main from "components/pages/Main/Main";
+
+const LazyMain = lazy(() => import("components/pages/Main/Main"));
+
+const LazyPomodoroContent = lazy(() =>
+    import("components/molecules/PomodoroContent/PomodoroContent")
+);
 
 const LazyPomodoroClock = lazy(() => import("components/organisms/PomodoroClock/PomodoroClock"));
 
@@ -14,19 +19,19 @@ const LazyTodoBoard = lazy(() => import("components/organisms/TodoBoard/TodoBoar
 
 function App() {
     return (
-        <Main>
-            <PomodoroContent>
-                <Suspense fallback={<Spin />}>
+        <Suspense fallback={<LoadingSpin />}>
+            <Main>
+                <LazyPomodoroContent>
                     <LazyPomodoroClock />
                     <LazyYoutubeEmbed />
                     <BoardProvider>
                         <LazyTodoBoard />
                     </BoardProvider>
                     <BoardNote />
-                </Suspense>
-            </PomodoroContent>
-            <Footer />
-        </Main>
+                </LazyPomodoroContent>
+                <Footer />
+            </Main>
+        </Suspense>
     );
 }
 
