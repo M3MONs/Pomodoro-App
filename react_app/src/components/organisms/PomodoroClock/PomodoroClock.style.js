@@ -21,10 +21,8 @@ const PomodoroClockWrapper = styled.div`
 `
 
 const ClockWrapper = styled.div`
-    font-size: 6rem;
+    font-size: 5.5rem;
     font-weight: 600;
-    /* -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black; */
     text-align: center;
 `
 
